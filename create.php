@@ -8,6 +8,7 @@ if (!empty($_POST)) {
   $email = isset($_POST['email']) ? $_POST['email'] : '';
   $password = isset($_POST['password']) ? $_POST['password'] : '';
   $stmt = $pdo->prepare('INSERT INTO users VALUES ($name, $email, $password)');
+  $stmt->execute([$name, $email, $password]);
   $msg = 'Created Successfully!';
 }
 ?>
